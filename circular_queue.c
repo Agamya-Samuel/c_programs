@@ -22,20 +22,17 @@ void inserOne()
     {
         printf("\nQueue is full\n");
         return;
-    }
+    } 
+    if(front==-1)
+        front=0;
+    if(rear==(MAX-1))
+        rear=0;
     else
-    {
-        if(front==-1)
-            front=0;
-        if(rear==(MAX-1))
-            rear=0;
-        else
-            rear=rear+1;
-        printf("\nEnter the element to be inserted: ");
-        scanf("%d",&item);
-        queue[rear]=item;
-        display();
-    }
+        rear=rear+1;
+    printf("\nEnter the element to be inserted: ");
+    scanf("%d",&item);
+    queue[rear]=item;
+    display();
 }
 
 void deleteOne()
@@ -45,21 +42,18 @@ void deleteOne()
         printf("\nQueue is empty\n");
         return;
     }
-    else
+    item=queue[front];
+    printf("\nDeleted element is = %d\n",item);
+    if(front==rear)
     {
-        item=queue[front];
-        printf("\nDeleted element is = %d\n",item);
-        if(front==rear)
-        {
-            front=-1;
-            rear=-1;
-        }
-        else if(front==MAX-1)
-            front=0;
-        else
-            front++;
-        display();
+        front=-1;
+        rear=-1;
     }
+    else if(front==MAX-1)
+        front=0;
+    else
+        front++;
+    display();
 }
 
 void display()

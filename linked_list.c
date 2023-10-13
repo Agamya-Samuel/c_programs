@@ -49,6 +49,21 @@ void delete(int data) {
     }
 }
 
+void search(int data) {
+    struct node *temp = head;
+
+    while (temp != NULL) {
+        if (temp->data == data) {
+            printf("Found %d\n", data);
+            return;
+        }
+
+        temp = temp->next;
+    }
+
+    printf("Not found\n");
+}
+
 void print() {
     struct node *temp = head;
 
@@ -68,6 +83,8 @@ int main() {
     insert(5);
 
     print();
+
+    search(3);
 
     delete(3);
 
