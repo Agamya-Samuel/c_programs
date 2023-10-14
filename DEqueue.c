@@ -118,7 +118,7 @@ void delete_right()
 void display_queue()
 {
     int front_pos = left, rear_pos = right;
-    if (left == -1)
+    if (front_pos == -1)
     {
         printf("Queue is empty \n");
         return;
